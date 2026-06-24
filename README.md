@@ -97,6 +97,10 @@ This is the Entangled Partner FSM.
 ## Quick Start
 
 ```bash
+# Run locally
+npm install
+npm test
+
 # Issue sovereignty (requires Bridge + Optimizer steps first)
 curl -X POST https://collectivekitty.com/api/gateway/sovereign \
   -H "Content-Type: application/json" \
@@ -121,6 +125,16 @@ curl -X POST https://collectivekitty.com/api/gateway/sovereign \
 Full implementation: [SNAPKITTYWEST/DEVFLOW-FINANCE](https://github.com/SNAPKITTYWEST/DEVFLOW-FINANCE)
 Core library: `collectivekitty/lib/magma/sovereign.ts`
 API endpoint: `collectivekitty/pages/api/gateway/sovereign.ts`
+
+This standalone repo now also ships a runnable TypeScript reference engine:
+
+```text
+src/index.ts              SEIT tier assignment, vendor lock stripping, dual seals
+tests/sovereign.test.ts   Participant record and quorum boundary tests
+```
+
+The package verifies quorum before issuing participant records and signs every
+record with SENTINEL and MNEMEX seals.
 
 ---
 
